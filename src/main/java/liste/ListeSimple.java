@@ -53,6 +53,11 @@ public class ListeSimple {
         return sb.toString();
     }
 
+    /**
+     * Supprime le premier nœud ayant l'élément spécifié.
+     *
+     * @param element l'élément à supprimer.
+     */
     public void supprimePremier(Object element) {
         if (tete != null) {
             if (tete.getElement() == element) {
@@ -73,6 +78,11 @@ public class ListeSimple {
         }
     }
 
+    /**
+     * Supprime tous les nœuds ayant l'élément spécifié.
+     *
+     * @param element l'élément à supprimer dans tous les nœuds.
+     */
     public void supprimeTous(int element) {
        tete = supprimeTousRecurs(element, tete);
     }
