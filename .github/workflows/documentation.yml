@@ -3,6 +3,8 @@ name: Generation et deploiement de  Documentation
 on:
   pull_request:
     types: [closed]
+permissions:
+  contents: write
 
 jobs:
   build:
