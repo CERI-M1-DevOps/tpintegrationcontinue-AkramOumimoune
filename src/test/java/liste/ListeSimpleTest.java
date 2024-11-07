@@ -256,4 +256,31 @@ class ListeSimpleTest {
         System.out.println(listeATester);
         assertEquals("ListeSimple(Noeud(4), Noeud(2), Noeud(3), Noeud(1), Noeud(5))",listeATester.toString());
     }
+
+    @Test
+    void testSupprimeTousRecurs() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(1);
+        listeATester.ajout(3);
+
+        listeATester.supprimeTousRecurs(1, listeATester.tete);
+
+        assertEquals("ListeSimple(Noeud(3), Noeud(2))", listeATester.toString());
+        assertEquals(2, listeATester.getSize());
+    }
+
+    @Test
+    void testGetPrecedent() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+
+        Noeud secondNode = listeATester.tete.getSuivant();
+        assertEquals(secondNode, listeATester.getPrecedent(secondNode).getSuivant());
+    }
+
+
+
+
 }
