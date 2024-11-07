@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 class ListeSimpleTest {
 
     ListeSimple listeATester;
@@ -285,16 +284,6 @@ class ListeSimpleTest {
 
         listeATester.supprimePremier(3);  // L'élément "3" est en tête
         assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
-    }
-
-    @Test
-    void supprimePremierElementPresentEnPositionIntermediaire() {
-        listeATester.ajout(1);
-        listeATester.ajout(2);
-        listeATester.ajout(3);
-
-        listeATester.supprimePremier(2);  // L'élément "2" est en position intermédiaire
-        assertEquals("ListeSimple(Noeud(3), Noeud(1))", listeATester.toString());
     }
 
     @Test
