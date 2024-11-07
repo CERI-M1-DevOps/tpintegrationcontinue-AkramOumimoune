@@ -1,31 +1,32 @@
-name: Generation et deploiement de  Documentation
+name: Documentation
 
 on:
   pull_request:
     types: [closed]
+
 permissions:
   contents: write
 
 jobs:
   build:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.merged == true }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Java
+      - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'corretto'
 
-      - name: Generate Javadoc
+      - name: Generate documentation
         run: mvn -B javadoc:javadoc
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to github pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./target/site/apidocs
+          publish_dir: ./target/reports/apidocs
